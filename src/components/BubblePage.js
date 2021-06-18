@@ -14,7 +14,7 @@ const BubblePage = () => {
 
   useEffect(() => {
     fetchColorService(setColors)
-  },[])
+  }, [])
 
   const toggleEdit = (value) => {
     setEditing(value);
@@ -22,7 +22,7 @@ const BubblePage = () => {
 
   const saveEdit = (editColor) => {
     const newArray = [...colors]
-    newArray[editColor.id -1] = editColor;
+    newArray[editColor.id - 1] = editColor;
     setColors(newArray)
   };
 
@@ -35,8 +35,8 @@ const BubblePage = () => {
 
   return (
     <div className="container">
-      <ColorList colors={colors} editing={editing} toggleEdit={toggleEdit} saveEdit={saveEdit} deleteColor={deleteColor}/>
-      <Bubbles colors={colors}/>
+      <ColorList colors={colors} editing={editing} toggleEdit={toggleEdit} saveEdit={saveEdit} deleteColor={deleteColor} />
+      <Bubbles colors={colors} />
 
     </div>
   );

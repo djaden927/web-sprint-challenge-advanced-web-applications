@@ -25,9 +25,9 @@ const Login = (props) => {
     e.preventDefault();
 
     Axios.post("http://localhost:5000/api/login", {
-       username: credentials.username, 
-       password: credentials.password 
-      })
+      username: credentials.username,
+      password: credentials.password
+    })
       .then(res => {
         localStorage.setItem("token", res.data.payload)
         setError('')
