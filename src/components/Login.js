@@ -35,7 +35,7 @@ const Login = (props) => {
       })
       .catch(err => {
         console.log(err)
-        setError("Invalid credentials, please try again.")
+        setError("Username or Password not valid.")
       })
   }
 
