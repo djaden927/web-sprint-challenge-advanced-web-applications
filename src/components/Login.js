@@ -65,7 +65,7 @@ const Login = (props) => {
         </form>
       </div>
 
-      <p data-testid="errorMessage" className="error">{error}</p>
+      <p data-testid="errorMessage" id="errorMessage" className="error">{error}</p>
     </div>
   );
 };
