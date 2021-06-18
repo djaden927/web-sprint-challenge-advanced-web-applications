@@ -7,6 +7,8 @@ const ColorList = (props) => {
   const { colors, editing, toggleEdit, saveEdit, deleteColor } = props;
   const [ editColor, setEditColor] = useState({ color: "", code: { hex: "" }});
 
+  console.log(colors)
+  console.log("colorlist")
   return (
     <div className="colors-wrap">
       <p>colors</p>

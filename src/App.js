@@ -1,8 +1,19 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+
+import PrivateRoute from './components/PrivateRoute';
+import axiosWithAuth from './helpers/axiosWithAuth.js'
+import BubblePage from "./components/BubblePage.js"
 
 import Login from "./components/Login";
 import "./styles.scss";
+
+
+const logout = () => {
+  const token = localStorage.getItem("token")
+      localStorage.removeItem("token");
+      window.location.href = '/'
+};
 
 function App() {
   return (
@@ -10,10 +21,14 @@ function App() {
       <div className="App">
         <header>
           Color Picker Sprint Challenge
-          <a data-testid="logoutButton" href="#">logout</a>
+          <a data-testid="logoutButton" href="#" onClick={logout}>logout</a>
         </header> 
 
-        <Route exact path="/" component={Login} />
+        <Switch>
+        <PrivateRoute exact path="/protected" component={BubblePage} />
+        <Route path="/" component={Login} />
+        <Route component={Login}/>
+        </Switch>
       </div>
     </Router>
   );
